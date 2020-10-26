@@ -1,0 +1,96 @@
+:root {
+    --transition-time: 2s;
+    --particle-color: "paleturquoise";
+}
+
+html {
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    /*the overflow is clipped, and the rest of the content is hidden */
+    background-color: black;
+    overflow: hidden;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    transition: background var(--transition-time);
+}
+
+.header {
+    padding: 0px;
+    text-align: right;
+    color: paleturquoise;
+    font-size: 20px;
+    font-family : "Arial Black", Gadget, sans-serif;
+    position: fixed;
+    margin: 0 auto;
+    right: 10px;
+    transition: color var(--transition-time);
+}
+
+.footer {
+    padding: 20px;
+    text-align: left;
+    color: paleturquoise;
+    font-size: 14px;
+    font-family : "Arial Black", Gadget, sans-serif;
+    position: fixed;
+    bottom: 0;
+    transition: color var(--transition-time);
+}
+
+.circle {
+    overflow: auto;
+    background: transparent;
+    border-radius: 50%;
+    border: 10px solid paleturquoise;
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: border var(--transition-time);
+}
+
+particle {
+    /* span is positioned relative to the nearest positioned ancestor*/
+    position: absolute;
+    border-radius: 50%;
+    /* The pointer-events CSS property sets under what circumstances (if any)
+    a particular graphic element can become the target of pointer events.
+    none => The element is never the target of pointer events. */
+    pointer-events: none;
+    /* Animation */
+    animation-name: spanAnimate;
+    animation-duration: 7.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    --movX: 50%;
+    --movY: 50%;
+}
+
+@keyframes spanAnimate {
+    0% {
+        transform: scale(0) translateX(0%) translateY(0%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateX(var(--movX)) translateY(var(--movY));
+        opacity: 0;
+    }
+
+}
